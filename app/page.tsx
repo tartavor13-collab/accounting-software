@@ -1,155 +1,133 @@
 'use client';
 
 import React from 'react';
-import { Card, Button, StatCard, Badge } from '@/components';
-import { BarChart3, Package, Users, TrendingUp, CheckCircle } from 'lucide-react';
+import { Card } from '@/components';
+import Link from 'next/link';
 
-export default function Home() {
-  const components = [
-    { name: 'Sidebar', status: '✓', icon: '📋' },
-    { name: 'Navbar', status: '✓', icon: '🔝' },
-    { name: 'Button', status: '✓', icon: '🔘' },
-    { name: 'Card', status: '✓', icon: '📦' },
-    { name: 'Table', status: '✓', icon: '📊' },
-    { name: 'Forms (Input, Textarea, Select)', status: '✓', icon: '📝' },
-    { name: 'SearchBar', status: '✓', icon: '🔍' },
-    { name: 'Dropdown', status: '✓', icon: '⬇️' },
-    { name: 'Modal', status: '✓', icon: '🪟' },
-    { name: 'Drawer', status: '✓', icon: '📂' },
-    { name: 'Pagination', status: '✓', icon: '⏭️' },
-    { name: 'Badge', status: '✓', icon: '🏷️' },
-    { name: 'Tabs', status: '✓', icon: '📑' },
-    { name: 'Accordion', status: '✓', icon: '📂' },
-    { name: 'Checkbox & Radio', status: '✓', icon: '✔️' },
-    { name: 'DatePicker', status: '✓', icon: '📅' },
-    { name: 'Charts (Setup)', status: '✓', icon: '📈' },
-    { name: 'Toast', status: '✓', icon: '🍞' },
-    { name: 'Skeleton Loader', status: '✓', icon: '⏳' },
-    { name: 'EmptyState', status: '✓', icon: '📭' },
-    { name: 'LoadingSpinner', status: '✓', icon: '⚙️' },
-    { name: 'ConfirmDialog', status: '✓', icon: '❓' },
-    { name: 'Alert', status: '✓', icon: '⚠️' },
-    { name: 'Breadcrumb', status: '✓', icon: '🛤️' },
-    { name: 'StatCard', status: '✓', icon: '📈' },
-    { name: 'MetricCard', status: '✓', icon: '🎯' },
-  ];
-
+const Home: React.FC = () => {
   return (
-    <div className="p-6 space-y-8">
-      {/* Header */}
-      <div className="mb-8">
-        <h1 className="text-4xl font-bold text-gray-900 dark:text-white mb-2">
-          Phase 2: Global UI Components
-        </h1>
-        <p className="text-lg text-gray-600 dark:text-gray-400">
-          All reusable components are now ready for use across the application
-        </p>
-      </div>
-
-      {/* Status Cards */}
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-        <StatCard
-          title="Components Created"
-          value={26}
-          icon={<Package size={24} />}
-          color="primary"
-        />
-        <StatCard
-          title="Design System"
-          value="Complete"
-          icon={<BarChart3 size={24} />}
-          color="secondary"
-        />
-        <StatCard
-          title="Ready for Phase 3"
-          value="100%"
-          icon={<CheckCircle size={24} />}
-          color="success"
-        />
-      </div>
-
-      {/* Components Grid */}
-      <div>
-        <h2 className="text-2xl font-bold text-gray-900 dark:text-white mb-4">Components Created</h2>
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
-          {components.map((comp, idx) => (
-            <Card hover key={idx} className="p-4 flex items-center justify-between">
-              <div className="flex items-center gap-3">
-                <span className="text-2xl">{comp.icon}</span>
-                <span className="font-medium text-gray-900 dark:text-white">{comp.name}</span>
-              </div>
-              <Badge variant="success" size="sm">
-                {comp.status}
-              </Badge>
-            </Card>
-          ))}
+    <div className="min-h-screen bg-gradient-to-br from-primary-50 to-secondary-50 dark:from-gray-950 dark:to-gray-900">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+        {/* Header */}
+        <div className="text-center mb-12">
+          <h1 className="text-5xl font-bold text-gray-900 dark:text-white mb-4">
+            Accounting Software
+          </h1>
+          <p className="text-xl text-gray-600 dark:text-gray-300 mb-8">
+            Modern Retail Billing, Inventory & Accounting Management
+          </p>
         </div>
-      </div>
 
-      {/* Features */}
-      <Card hover className="p-8 bg-gradient-to-r from-primary-50 to-secondary-50 dark:from-primary-900/20 dark:to-secondary-900/20">
-        <h2 className="text-2xl font-bold text-gray-900 dark:text-white mb-4">
-          Phase 2 Features Included
-        </h2>
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-          <div>
-            <h3 className="font-semibold text-gray-900 dark:text-white mb-3">Layout Components</h3>
-            <ul className="space-y-2 text-sm text-gray-700 dark:text-gray-300">
-              <li>✓ Responsive Sidebar with collapsible menu</li>
-              <li>✓ Sticky Navbar with notifications</li>
-              <li>✓ Theme toggle (Light/Dark)</li>
-              <li>✓ Mobile drawer support</li>
-            </ul>
-          </div>
-          <div>
-            <h3 className="font-semibold text-gray-900 dark:text-white mb-3">Form Components</h3>
-            <ul className="space-y-2 text-sm text-gray-700 dark:text-gray-300">
-              <li>✓ Input with error states</li>
-              <li>✓ Textarea</li>
-              <li>✓ Select dropdown</li>
-              <li>✓ Checkbox & Radio buttons</li>
-            </ul>
-          </div>
-          <div>
-            <h3 className="font-semibold text-gray-900 dark:text-white mb-3">Data Display</h3>
-            <ul className="space-y-2 text-sm text-gray-700 dark:text-gray-300">
-              <li>✓ Advanced Table with sorting</li>
-              <li>✓ Badges with variants</li>
-              <li>✓ Stat Cards with trends</li>
-              <li>✓ Breadcrumb navigation</li>
-            </ul>
-          </div>
-          <div>
-            <h3 className="font-semibold text-gray-900 dark:text-white mb-3">Feedback Components</h3>
-            <ul className="space-y-2 text-sm text-gray-700 dark:text-gray-300">
-              <li>✓ Toast notifications</li>
-              <li>✓ Alert boxes</li>
-              <li>✓ Loading spinner</li>
-              <li>✓ Skeleton loaders</li>
-            </ul>
-          </div>
-        </div>
-      </Card>
-
-      {/* Next Phase */}
-      <Card className="p-8 border-2 border-primary-500 bg-gradient-to-r from-primary-50 to-transparent dark:from-primary-900/30 dark:to-transparent">
-        <div className="flex items-start justify-between">
-          <div>
-            <h2 className="text-2xl font-bold text-primary-600 dark:text-primary-400 mb-2">
-              🚀 Phase 2 Complete!
+        {/* Phase Status */}
+        <Card hover className="p-8 mb-8">
+          <div className="mb-6">
+            <h2 className="text-2xl font-bold text-gray-900 dark:text-white mb-4">
+              ✅ Phase 3: Authentication - COMPLETE
             </h2>
             <p className="text-gray-600 dark:text-gray-300 mb-4">
-              All global UI components are ready and reusable across the entire application.
-            </p>
-            <p className="text-sm text-gray-500 dark:text-gray-400">
-              Next: Phase 3 will implement Authentication (Login, Register, Forgot Password)
+              Complete authentication system with login, registration, and password recovery.
             </p>
           </div>
-          <Button variant="primary" size="lg">
-            Continue to Phase 3
-          </Button>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+            {/* Column 1 */}
+            <div>
+              <h3 className="font-semibold text-gray-900 dark:text-white mb-3">
+                Authentication Features
+              </h3>
+              <ul className="space-y-2 text-gray-600 dark:text-gray-300">
+                <li>✅ User Login Page</li>
+                <li>✅ User Registration</li>
+                <li>✅ Forgot Password</li>
+                <li>✅ Password Reset</li>
+                <li>✅ Logout Functionality</li>
+                <li>✅ Protected Routes</li>
+              </ul>
+            </div>
+
+            {/* Column 2 */}
+            <div>
+              <h3 className="font-semibold text-gray-900 dark:text-white mb-3">
+                Security & Validation
+              </h3>
+              <ul className="space-y-2 text-gray-600 dark:text-gray-300">
+                <li>✅ Email Validation</li>
+                <li>✅ Password Strength</li>
+                <li>✅ Form Validation (Zod)</li>
+                <li>✅ Error Handling</li>
+                <li>✅ Loading States</li>
+                <li>✅ Remember Me Feature</li>
+              </ul>
+            </div>
+          </div>
+        </Card>
+
+        {/* Features Grid */}
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
+          <Card hover className="p-6">
+            <h3 className="font-semibold text-gray-900 dark:text-white mb-2">
+              Login Page
+            </h3>
+            <p className="text-sm text-gray-600 dark:text-gray-300 mb-4">
+              Beautiful login interface with email, password, and remember me option.
+            </p>
+            <Link href="/login" className="text-primary-500 hover:text-primary-600 text-sm font-medium">
+              View Page →
+            </Link>
+          </Card>
+
+          <Card hover className="p-6">
+            <h3 className="font-semibold text-gray-900 dark:text-white mb-2">
+              Registration Page
+            </h3>
+            <p className="text-sm text-gray-600 dark:text-gray-300 mb-4">
+              Complete signup form with validation and password confirmation.
+            </p>
+            <Link href="/register" className="text-primary-500 hover:text-primary-600 text-sm font-medium">
+              View Page →
+            </Link>
+          </Card>
+
+          <Card hover className="p-6">
+            <h3 className="font-semibold text-gray-900 dark:text-white mb-2">
+              Password Recovery
+            </h3>
+            <p className="text-sm text-gray-600 dark:text-gray-300 mb-4">
+              Forgot password flow with email verification and reset option.
+            </p>
+            <Link href="/forgot-password" className="text-primary-500 hover:text-primary-600 text-sm font-medium">
+              View Page →
+            </Link>
+          </Card>
         </div>
-      </Card>
+
+        {/* Demo Credentials */}
+        <Card hover className="p-8 bg-blue-50 dark:bg-blue-900/20 border border-blue-200 dark:border-blue-800">
+          <h3 className="text-xl font-bold text-blue-900 dark:text-blue-200 mb-4">
+            📋 Demo Credentials
+          </h3>
+          <div className="space-y-2 text-blue-800 dark:text-blue-300">
+            <p><strong>Email:</strong> admin@accounting.com</p>
+            <p><strong>Password:</strong> password</p>
+            <p className="text-sm mt-4">Or create a new account via the Registration page</p>
+          </div>
+        </Card>
+
+        {/* Next Phase */}
+        <Card hover className="p-8 mt-8 bg-gradient-to-r from-primary-50 to-secondary-50 dark:from-primary-900/20 dark:to-secondary-900/20">
+          <h2 className="text-2xl font-bold text-primary-600 dark:text-primary-400 mb-2">
+            🚀 Ready for Phase 4
+          </h2>
+          <p className="text-gray-600 dark:text-gray-300 mb-4">
+            Phase 3 Authentication is complete and ready for production use.
+          </p>
+          <p className="text-sm text-gray-500 dark:text-gray-400">
+            Next: Phase 4 will implement the Professional Dashboard with KPIs, charts, and business metrics.
+          </p>
+        </Card>
+      </div>
     </div>
   );
-}
+};
+
+export default Home;
