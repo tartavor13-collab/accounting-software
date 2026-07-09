@@ -1,16 +1,16 @@
-import { create } from "zustand";
-import { User } from "@/types";
+import { create } from 'zustand';
+import { User } from '@/types';
 
-interface AppStore {
-  user: User | null;
-  setUser: (user: User | null) => void;
+interface AppState {
   sidebarOpen: boolean;
   setSidebarOpen: (open: boolean) => void;
+  user: User | null;
+  setUser: (user: User | null) => void;
 }
 
-export const useAppStore = create<AppStore>((set) => ({
-  user: null,
-  setUser: (user) => set({ user }),
+export const useAppStore = create<AppState>((set) => ({
   sidebarOpen: true,
-  setSidebarOpen: (open) => set({ sidebarOpen: open }),
+  setSidebarOpen: (open: boolean) => set({ sidebarOpen: open }),
+  user: null,
+  setUser: (user: User | null) => set({ user }),
 }));
