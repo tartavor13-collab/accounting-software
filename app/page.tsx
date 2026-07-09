@@ -1,168 +1,155 @@
-import React from "react";
-import { Card, Button } from "@/components";
+'use client';
+
+import React from 'react';
+import { Card, Button, StatCard, Badge } from '@/components';
+import { BarChart3, Package, Users, TrendingUp, CheckCircle } from 'lucide-react';
 
 export default function Home() {
-  return (
-    <div className="min-h-screen bg-gradient-to-br from-primary-50 to-secondary-50 dark:from-gray-950 dark:to-gray-900">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
-        {/* Header */}
-        <div className="text-center mb-12">
-          <h1 className="text-5xl font-bold text-gray-900 dark:text-white mb-4">
-            Accounting Software
-          </h1>
-          <p className="text-xl text-gray-600 dark:text-gray-300 mb-8">
-            Modern Retail Billing, Inventory & Accounting Management
-          </p>
-        </div>
+  const components = [
+    { name: 'Sidebar', status: '✓', icon: '📋' },
+    { name: 'Navbar', status: '✓', icon: '🔝' },
+    { name: 'Button', status: '✓', icon: '🔘' },
+    { name: 'Card', status: '✓', icon: '📦' },
+    { name: 'Table', status: '✓', icon: '📊' },
+    { name: 'Forms (Input, Textarea, Select)', status: '✓', icon: '📝' },
+    { name: 'SearchBar', status: '✓', icon: '🔍' },
+    { name: 'Dropdown', status: '✓', icon: '⬇️' },
+    { name: 'Modal', status: '✓', icon: '🪟' },
+    { name: 'Drawer', status: '✓', icon: '📂' },
+    { name: 'Pagination', status: '✓', icon: '⏭️' },
+    { name: 'Badge', status: '✓', icon: '🏷️' },
+    { name: 'Tabs', status: '✓', icon: '📑' },
+    { name: 'Accordion', status: '✓', icon: '📂' },
+    { name: 'Checkbox & Radio', status: '✓', icon: '✔️' },
+    { name: 'DatePicker', status: '✓', icon: '📅' },
+    { name: 'Charts (Setup)', status: '✓', icon: '📈' },
+    { name: 'Toast', status: '✓', icon: '🍞' },
+    { name: 'Skeleton Loader', status: '✓', icon: '⏳' },
+    { name: 'EmptyState', status: '✓', icon: '📭' },
+    { name: 'LoadingSpinner', status: '✓', icon: '⚙️' },
+    { name: 'ConfirmDialog', status: '✓', icon: '❓' },
+    { name: 'Alert', status: '✓', icon: '⚠️' },
+    { name: 'Breadcrumb', status: '✓', icon: '🛤️' },
+    { name: 'StatCard', status: '✓', icon: '📈' },
+    { name: 'MetricCard', status: '✓', icon: '🎯' },
+  ];
 
-        {/* Phase 1 Status */}
-        <Card hover className="p-8 mb-8">
-          <div className="mb-6">
-            <h2 className="text-2xl font-bold text-gray-900 dark:text-white mb-4">
-              ✅ Phase 1: Project Foundation
+  return (
+    <div className="p-6 space-y-8">
+      {/* Header */}
+      <div className="mb-8">
+        <h1 className="text-4xl font-bold text-gray-900 dark:text-white mb-2">
+          Phase 2: Global UI Components
+        </h1>
+        <p className="text-lg text-gray-600 dark:text-gray-400">
+          All reusable components are now ready for use across the application
+        </p>
+      </div>
+
+      {/* Status Cards */}
+      <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+        <StatCard
+          title="Components Created"
+          value={26}
+          icon={<Package size={24} />}
+          color="primary"
+        />
+        <StatCard
+          title="Design System"
+          value="Complete"
+          icon={<BarChart3 size={24} />}
+          color="secondary"
+        />
+        <StatCard
+          title="Ready for Phase 3"
+          value="100%"
+          icon={<CheckCircle size={24} />}
+          color="success"
+        />
+      </div>
+
+      {/* Components Grid */}
+      <div>
+        <h2 className="text-2xl font-bold text-gray-900 dark:text-white mb-4">Components Created</h2>
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+          {components.map((comp, idx) => (
+            <Card hover key={idx} className="p-4 flex items-center justify-between">
+              <div className="flex items-center gap-3">
+                <span className="text-2xl">{comp.icon}</span>
+                <span className="font-medium text-gray-900 dark:text-white">{comp.name}</span>
+              </div>
+              <Badge variant="success" size="sm">
+                {comp.status}
+              </Badge>
+            </Card>
+          ))}
+        </div>
+      </div>
+
+      {/* Features */}
+      <Card hover className="p-8 bg-gradient-to-r from-primary-50 to-secondary-50 dark:from-primary-900/20 dark:to-secondary-900/20">
+        <h2 className="text-2xl font-bold text-gray-900 dark:text-white mb-4">
+          Phase 2 Features Included
+        </h2>
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+          <div>
+            <h3 className="font-semibold text-gray-900 dark:text-white mb-3">Layout Components</h3>
+            <ul className="space-y-2 text-sm text-gray-700 dark:text-gray-300">
+              <li>✓ Responsive Sidebar with collapsible menu</li>
+              <li>✓ Sticky Navbar with notifications</li>
+              <li>✓ Theme toggle (Light/Dark)</li>
+              <li>✓ Mobile drawer support</li>
+            </ul>
+          </div>
+          <div>
+            <h3 className="font-semibold text-gray-900 dark:text-white mb-3">Form Components</h3>
+            <ul className="space-y-2 text-sm text-gray-700 dark:text-gray-300">
+              <li>✓ Input with error states</li>
+              <li>✓ Textarea</li>
+              <li>✓ Select dropdown</li>
+              <li>✓ Checkbox & Radio buttons</li>
+            </ul>
+          </div>
+          <div>
+            <h3 className="font-semibold text-gray-900 dark:text-white mb-3">Data Display</h3>
+            <ul className="space-y-2 text-sm text-gray-700 dark:text-gray-300">
+              <li>✓ Advanced Table with sorting</li>
+              <li>✓ Badges with variants</li>
+              <li>✓ Stat Cards with trends</li>
+              <li>✓ Breadcrumb navigation</li>
+            </ul>
+          </div>
+          <div>
+            <h3 className="font-semibold text-gray-900 dark:text-white mb-3">Feedback Components</h3>
+            <ul className="space-y-2 text-sm text-gray-700 dark:text-gray-300">
+              <li>✓ Toast notifications</li>
+              <li>✓ Alert boxes</li>
+              <li>✓ Loading spinner</li>
+              <li>✓ Skeleton loaders</li>
+            </ul>
+          </div>
+        </div>
+      </Card>
+
+      {/* Next Phase */}
+      <Card className="p-8 border-2 border-primary-500 bg-gradient-to-r from-primary-50 to-transparent dark:from-primary-900/30 dark:to-transparent">
+        <div className="flex items-start justify-between">
+          <div>
+            <h2 className="text-2xl font-bold text-primary-600 dark:text-primary-400 mb-2">
+              🚀 Phase 2 Complete!
             </h2>
             <p className="text-gray-600 dark:text-gray-300 mb-4">
-              Phase 1 has been successfully completed with the following setup:
+              All global UI components are ready and reusable across the entire application.
+            </p>
+            <p className="text-sm text-gray-500 dark:text-gray-400">
+              Next: Phase 3 will implement Authentication (Login, Register, Forgot Password)
             </p>
           </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-            {/* Column 1 */}
-            <div>
-              <h3 className="font-semibold text-gray-900 dark:text-white mb-3">
-                Framework & Tools
-              </h3>
-              <ul className="space-y-2 text-gray-600 dark:text-gray-300">
-                <li>✓ Next.js 15 with App Router</li>
-                <li>✓ React 19</li>
-                <li>✓ TypeScript 5.3</li>
-                <li>✓ Tailwind CSS 3.4</li>
-                <li>✓ Dark Mode Support</li>
-              </ul>
-            </div>
-
-            {/* Column 2 */}
-            <div>
-              <h3 className="font-semibold text-gray-900 dark:text-white mb-3">
-                Libraries & Utilities
-              </h3>
-              <ul className="space-y-2 text-gray-600 dark:text-gray-300">
-                <li>✓ Zustand (State Management)</li>
-                <li>✓ React Hook Form + Zod</li>
-                <li>✓ Recharts (Charts)</li>
-                <li>✓ TanStack Table</li>
-                <li>✓ Lucide React Icons</li>
-              </ul>
-            </div>
-          </div>
-        </Card>
-
-        {/* Configuration Details */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
-          <Card hover className="p-6">
-            <h3 className="font-semibold text-gray-900 dark:text-white mb-2">
-              Color System
-            </h3>
-            <p className="text-sm text-gray-600 dark:text-gray-300 mb-3">
-              Configured with:
-            </p>
-            <div className="space-y-2">
-              <div className="flex items-center gap-2">
-                <div className="w-4 h-4 rounded bg-primary-500" />
-                <span className="text-sm">Primary: #556B2F</span>
-              </div>
-              <div className="flex items-center gap-2">
-                <div className="w-4 h-4 rounded bg-secondary-500" />
-                <span className="text-sm">Secondary: #22c55e</span>
-              </div>
-              <div className="flex items-center gap-2">
-                <div className="w-4 h-4 rounded bg-sidebar" />
-                <span className="text-sm">Sidebar: #111827</span>
-              </div>
-            </div>
-          </Card>
-
-          <Card hover className="p-6">
-            <h3 className="font-semibold text-gray-900 dark:text-white mb-2">
-              Typography
-            </h3>
-            <p className="text-sm text-gray-600 dark:text-gray-300 mb-3">
-              Font Family: Inter
-            </p>
-            <div className="space-y-2">
-              <p className="text-xs font-light">Light (400)</p>
-              <p className="text-xs font-medium">Medium (500)</p>
-              <p className="text-xs font-semibold">Semibold (600)</p>
-              <p className="text-xs font-bold">Bold (700)</p>
-            </div>
-          </Card>
-
-          <Card hover className="p-6">
-            <h3 className="font-semibold text-gray-900 dark:text-white mb-2">
-              Project Structure
-            </h3>
-            <p className="text-sm text-gray-600 dark:text-gray-300">
-              Organized with:
-            </p>
-            <ul className="text-xs text-gray-600 dark:text-gray-400 mt-2 space-y-1">
-              <li>• app/ - Next.js pages</li>
-              <li>• components/ - UI Components</li>
-              <li>• features/ - Feature modules</li>
-              <li>• hooks/ - Custom hooks</li>
-              <li>• types/ - TypeScript types</li>
-              <li>• utils/ - Utilities</li>
-              <li>• data/ - Mock data</li>
-            </ul>
-          </Card>
+          <Button variant="primary" size="lg">
+            Continue to Phase 3
+          </Button>
         </div>
-
-        {/* Utilities Created */}
-        <Card hover className="p-8 mb-8">
-          <h3 className="text-xl font-bold text-gray-900 dark:text-white mb-4">
-            Utilities Created
-          </h3>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-            <div>
-              <h4 className="font-semibold text-gray-900 dark:text-white mb-2">
-                Formatting
-              </h4>
-              <ul className="text-sm text-gray-600 dark:text-gray-300 space-y-1">
-                <li>• formatCurrency() - INR formatting</li>
-                <li>• formatNumber() - Number formatting</li>
-                <li>• formatPercentage() - Percentage</li>
-                <li>• formatDate() - Date formatting</li>
-                <li>• formatDateTime() - DateTime formatting</li>
-                <li>• formatTime() - Time formatting</li>
-              </ul>
-            </div>
-            <div>
-              <h4 className="font-semibold text-gray-900 dark:text-white mb-2">
-                Calculations
-              </h4>
-              <ul className="text-sm text-gray-600 dark:text-gray-300 space-y-1">
-                <li>• calculateGST() - GST calculation</li>
-                <li>• calculateDiscount() - Discount amount</li>
-                <li>• calculateProfit() - Profit calculation</li>
-                <li>• calculateProfitMargin() - Margin %</li>
-                <li>• calculateMarkup() - Markup %</li>
-              </ul>
-            </div>
-          </div>
-        </Card>
-
-        {/* Next Phase */}
-        <Card hover className="p-8 bg-gradient-to-r from-primary-50 to-secondary-50 dark:from-primary-900 dark:to-secondary-900">
-          <h3 className="text-xl font-bold text-gray-900 dark:text-white mb-2">
-            🚀 Ready for Phase 2
-          </h3>
-          <p className="text-gray-600 dark:text-gray-300 mb-4">
-            Phase 1 is complete. The project foundation is ready with all configurations, utilities, hooks, and base components set up.
-          </p>
-          <p className="text-sm text-gray-500 dark:text-gray-400">
-            Next: Phase 2 will include Global UI Components (Sidebar, Navbar, Buttons, Cards, Tables, Forms, Modals, etc.)
-          </p>
-        </Card>
-      </div>
+      </Card>
     </div>
   );
 }
